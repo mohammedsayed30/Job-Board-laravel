@@ -4,6 +4,16 @@ on: [push]
 jobs:
   Lint:
     runs-on: ubuntu-latest
+    services:
+    mysql:
+      image: mysql:5.7
+      env:
+         MYSQL_ALLOW_EMPTY_PASSWORD: yes
+         MYSQL_DATABASE: laragigs
+      ports:
+      - 33306:3306
+      options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+        
     steps:
       - name: Check out repository code
         uses: actions/checkout@v4
@@ -38,5 +48,11 @@ jobs:
 
       ##run tests
       - name: Run Tests
+        env:
+          DB_HOST: 127.0.0.1
+          DB_PORT: ${{ job.services.mysql.ports['3306'] }}
+          DB_USERNAME: root
+          DB_PASSWORD: ''
+          DB_DATABASE: laragigs
         run: vendor/bin/phpunit
       

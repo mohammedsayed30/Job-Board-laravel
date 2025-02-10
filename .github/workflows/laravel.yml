@@ -20,9 +20,12 @@ jobs:
         with:
           path: .
           options: --exclude=*.log
+ 
+      ## Fix PHP Style Issues and Check Again
+      - name: Fix PHP Style Issues with Pint
+        run: pint --dirty
 
-      ##run  check code sytle 
+      ## Check PHP Style Again
       - name: PHP style check
-        run:  pint --test
-        ## Run Laravel Pint Auto-Fix
+        run: pint --test
       

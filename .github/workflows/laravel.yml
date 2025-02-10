@@ -1,4 +1,4 @@
-name: Laravel CI/CD Test
+name: Laravel CI Test
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on: [push]
 jobs:

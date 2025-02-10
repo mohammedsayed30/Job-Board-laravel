@@ -46,7 +46,19 @@ jobs:
         env:
            COMPOSER_AUTH: ${{ secrets.COMPOSER_AUTH }}
         run: composer install --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist   
+      - name: Set up .env
+        run: |
+          echo "APP_ENV=testing" >> .env
+          echo "APP_KEY=base64:3m7mEjRz8MiG81X3WgDBx/LyYydUr5n0WKliY+YYu80=" >> .env
+          echo "DB_CONNECTION=mysql" >> .env
+          echo "DB_HOST=127.0.0.1" >> .env
+          echo "DB_PORT=3306" >> .env
+          echo "DB_DATABASE=laragigs" >> .env
+          echo "DB_USERNAME=root" >> .env
+          echo "DB_PASSWORD=null" >> .env
 
+      - name: Clear configuration cache
+        run: php artisan config:clear
       ##run tests
       - name: Run Tests
         env:

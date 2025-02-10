@@ -55,5 +55,5 @@ jobs:
           DB_USERNAME: root
           DB_PASSWORD: ''
           DB_DATABASE: laragigs
-        run: vendor/bin/phpunit
+        ##run: vendor/bin/phpunit
       

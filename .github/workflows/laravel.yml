@@ -14,7 +14,5 @@ jobs:
         with:
           php-version: '8.2'
 
-      - name: Print PHP version
-        run: echo ${{ steps.setup-php.outputs.php-version }} 
-      - name: Output PHP version
-        run:  php -v
+      - name: PHP check syntax
+        uses: michaelw90/PHP-Lint@2.1.0   

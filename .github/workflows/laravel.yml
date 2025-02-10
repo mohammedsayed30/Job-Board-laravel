@@ -20,14 +20,9 @@ jobs:
         with:
           path: .
           options: --exclude=*.log
-
+       ##Fix the  style issues 
       - name: Fix PHP code style issues
         uses: aglipanci/laravel-pint-action@2.5
-
-      - name: Commit changes
-        uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: Fix styling
 
       ## Check PHP Style Again
       - name: PHP style check

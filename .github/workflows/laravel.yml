@@ -15,4 +15,7 @@ jobs:
           php-version: '8.2'
 
       - name: PHP check syntax
-        uses: michaelw90/PHP-Lint@2.1.0   
+        uses: overtrue/phplint@8.1
+        with:
+          path: .
+          options: --exclude=*.log

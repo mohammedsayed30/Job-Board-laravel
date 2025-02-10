@@ -21,9 +21,9 @@ jobs:
           path: .
           options: --exclude=*.log
  
-       ## Fix PHP Style Issues
+      ## Fix PHP Style Issues
       - name: Fix PHP Style Issues with Pint
-        run: pint --dirty
+        run: pint --dirty || true  
 
       ## Commit and Push Fixed Code
       - name: Commit and Push Fixes

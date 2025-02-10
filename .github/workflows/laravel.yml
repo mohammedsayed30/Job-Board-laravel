@@ -32,7 +32,9 @@ jobs:
 
       ##install composer dependencies
       - name: Install Composer dependencies
-        uses: ramsey/composer-install@v3
+        env:
+           COMPOSER_AUTH: ${{ secrets.COMPOSER_AUTH }}
+        run: composer install --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist   
 
       ##run tests
       - name: Run Tests

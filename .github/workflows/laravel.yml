@@ -1,58 +1,18 @@
-name: Tests (PHP)
-
+name: GitHub Actions Demo
+run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on: [push]
-
 jobs:
-    tests:
-        name: Run tests
-        runs-on: ubuntu-latest
-        steps:
-            -   uses: actions/checkout@v3
-            -   name: Run composer install
-                run: composer install -n --prefer-dist
-                env:
-                   APP_ENV: testing
-            -   name: Prepare Laravel Application
-                run: |
-                   cp .env.example .env
-                   php artisan key:generate   
-                   echo "LARAVEL_BYPASS_ENV_CHECK=1" >> .env
-            -   name: Cache yarn dependencies
-                uses: actions/cache@v1
-                with:
-                  path: node_modules
-                  key: yarn-${{ hashFiles('yarn.lock') }}
-
-            -   name: Run yarn
-                run: yarn && yarn dev 
-
-            -   name: Cache composer dependencies
-                uses: actions/cache@v1
-                with:
-                 path: vendor
-                 key: composer-${{ hashFiles('composer.lock') }}
-
-            -   name: Run composer install
-                run: composer install -n --prefer-dist
-                env:
-                  APP_ENV: testing    
-
-            -   name: Run tests
-                run: ./vendor/bin/phpunit
-                env:
-                  APP_ENV: testing    
-            -   name: Run tests
-                run: ./vendor/bin/phpunit
-                env:
-                  APP_ENV: testing
-                  DB_CONNECTION: mysql
-                  DB_NAME: our-awesome-tested-app
-                  DB_PASSWORD: ''
-                  DB_USER: root   
-
-            -   name: Upload artifacts
-                uses: actions/upload-artifact@master
-                if: failure()
-                with:
-                  name: Logs
-                  path: ./storage/logs     
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+      - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
+      - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
+      - name: Check out repository code
+        uses: actions/checkout@v4
+      - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
+      - run: echo "🖥️ The workflow is now ready to test your code on the runner."
+      - name: List files in the repository
+        run: |
+          ls ${{ github.workspace }}
+      - run: echo "🍏 This job's status is ${{ job.status }}."

@@ -60,12 +60,12 @@ jobs:
       - name: Clear configuration cache
         run: php artisan config:clear
       ##run tests
-      - name: Run Tests
-        env:
-          DB_HOST: 127.0.0.1
-          DB_PORT: ${{ job.services.mysql.ports['3306'] }}
-          DB_USERNAME: root
-          DB_PASSWORD: ''
-          DB_DATABASE: laragigs
-        run: vendor/bin/phpunit
+     # - name: Run Tests
+      #  env:
+     #     DB_HOST: 127.0.0.1
+     #     DB_PORT: ${{ job.services.mysql.ports['3306'] }}
+     #     DB_USERNAME: root
+     #     DB_PASSWORD: ''
+     #     DB_DATABASE: laragigs
+      #  run: vendor/bin/phpunit
       

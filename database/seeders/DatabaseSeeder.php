@@ -3,8 +3,9 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use \App\Models\Listing;
+use App\Models\Listing;
 use Illuminate\Database\Seeder;
+
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -12,13 +13,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-         $user=\App\Models\User::factory()->create([
-            'name'=>'klay',
-            'email'=>'klay@gmail.com',
-         ]);
-         Listing::create([
+        $user = \App\Models\User::factory()->create([
+            'name' => 'klay',
+            'email' => 'klay@gmail.com',
+        ]);
+        Listing::create([
             'id' => 1,
-            'user_id'=>$user->id,
+            'user_id' => $user->id,
             'title' => 'Senior Software Engineer',
             'tags' => 'PHP, Laravel, JavaScript, Vue.js, MySQL',
             'company' => 'TechCorp Inc.',
@@ -28,12 +29,12 @@ class DatabaseSeeder extends Seeder
             'description' => 'We are looking for a Senior Software Engineer with expertise in PHP, Laravel, and modern JavaScript frameworks. You will work on building scalable web applications and collaborating with cross-functional teams.',
             'created_at' => '2023-10-01 12:00:00',
             'updated_at' => '2023-10-01 12:00:00',
-         ]);
+        ]);
 
-                // Job 1: Backend Developer
+        // Job 1: Backend Developer
         Listing::create([
             'id' => 2,
-            'user_id'=>$user->id,
+            'user_id' => $user->id,
             'title' => 'Backend Developer',
             'tags' => 'Python, Django, REST APIs, Docker',
             'company' => 'API Masters',
@@ -48,7 +49,7 @@ class DatabaseSeeder extends Seeder
         // Job 2: Frontend Developer
         Listing::create([
             'id' => 3,
-            'user_id'=>$user->id,
+            'user_id' => $user->id,
             'title' => 'Frontend Developer',
             'tags' => 'React, TypeScript, Redux, CSS',
             'company' => 'UI Innovators',
@@ -63,7 +64,7 @@ class DatabaseSeeder extends Seeder
         // Job 3: DevOps Engineer
         Listing::create([
             'id' => 4,
-            'user_id'=>$user->id,
+            'user_id' => $user->id,
             'title' => 'DevOps Engineer',
             'tags' => 'AWS, Kubernetes, Terraform, CI/CD',
             'company' => 'CloudOps Solutions',
@@ -78,7 +79,7 @@ class DatabaseSeeder extends Seeder
         // Job 4: Mobile App Developer
         Listing::create([
             'id' => 5,
-            'user_id'=>$user->id,
+            'user_id' => $user->id,
             'title' => 'Mobile App Developer',
             'tags' => 'Flutter, Dart, Firebase, REST APIs',
             'company' => 'AppCraft Studios',
@@ -92,7 +93,7 @@ class DatabaseSeeder extends Seeder
         // Job 6: Full-Stack Developer
         Listing::create([
             'id' => 6,
-            'user_id'=>$user->id,
+            'user_id' => $user->id,
             'title' => 'Full-Stack Developer',
             'tags' => 'React, Node.js, MongoDB, GraphQL',
             'company' => 'CodeCrafters Inc.',
@@ -107,7 +108,7 @@ class DatabaseSeeder extends Seeder
         // Job 7: Data Engineer
         Listing::create([
             'id' => 7,
-            'user_id'=>$user->id,
+            'user_id' => $user->id,
             'title' => 'Data Engineer',
             'tags' => 'Python, SQL, Apache Spark, AWS',
             'company' => 'DataFlow Solutions',
@@ -122,7 +123,7 @@ class DatabaseSeeder extends Seeder
         // Job 8: Machine Learning Engineer
         Listing::create([
             'id' => 8,
-            'user_id'=>$user->id,
+            'user_id' => $user->id,
             'title' => 'Machine Learning Engineer',
             'tags' => 'Python, TensorFlow, PyTorch, AWS',
             'company' => 'AI Innovators',
@@ -137,7 +138,7 @@ class DatabaseSeeder extends Seeder
         // Job 9: Cloud Solutions Architect
         Listing::create([
             'id' => 9,
-            'user_id'=>$user->id,
+            'user_id' => $user->id,
             'title' => 'Cloud Solutions Architect',
             'tags' => 'AWS, Azure, Google Cloud, Terraform',
             'company' => 'CloudMasters LLC',
@@ -152,7 +153,7 @@ class DatabaseSeeder extends Seeder
         // Job 10: QA Automation Engineer
         Listing::create([
             'id' => 10,
-            'user_id'=>$user->id,
+            'user_id' => $user->id,
             'title' => 'QA Automation Engineer',
             'tags' => 'Selenium, Java, Jenkins, API Testing',
             'company' => 'Testify Solutions',
